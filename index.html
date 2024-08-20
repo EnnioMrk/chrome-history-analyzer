@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="/js/tailwind.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fuzzysort@3.0.2/fuzzysort.min.js"></script>
+        <script src="/js/index.js" defer></script>
+        <title>Document</title>
+    </head>
+    <body
+        class="w-screen h-screen flex justify-center items-center bg-stone-900"
+    >
+        <div
+            id="mainWrapper"
+            class="w-2/3 h-fit p-4 flex flex-col justify-center gap-4 items-center border-2 border-stone-700 rounded-xl bg-stone-800 text-stone-200"
+        >
+            <div class="absolute top-0 h-fit p-4" id="header">
+                <h1 class="text-4xl text-stone-300 font-serif">
+                    Chrome Bookmarks Utility
+                </h1>
+            </div>
+
+            <div class="flex items-center justify-center w-full">
+                <label
+                    for="fileInput"
+                    id="dropzone"
+                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-stone-300 border-dashed rounded-lg cursor-pointer bg-stone-50 dark:hover:bg-bray-800 dark:bg-stone-800 hover:bg-stone-100 dark:border-stone-600 dark:hover:border-stone-500 dark:hover:bg-stone-700 transition-all"
+                >
+                    <div
+                        class="flex flex-col items-center justify-center pt-5 pb-6"
+                    >
+                        <svg
+                            class="w-10 h-10 mb-3 text-stone-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                            ></path>
+                        </svg>
+                        <p
+                            class="mb-2 text-sm text-stone-500 dark:text-stone-400"
+                        >
+                            <span class="font-semibold">Click to upload</span>
+                            or drag and drop
+                        </p>
+                        <p class="text-xs text-stone-500 dark:text-stone-400">
+                            HTML (e.g. Bookmarks.html)
+                        </p>
+                    </div>
+                    <input id="fileInput" type="file" class="hidden" />
+                </label>
+            </div>
+
+            <p id="lastModifiedText" class="font-mono hidden">
+                File last modified: <span id="lastModifiedTime"></span>
+            </p>
+
+            <p id="websitesFoundText" class="font-mono hidden">
+                Websites found: <span id="websitesFoundNumber"></span>
+            </p>
+
+            <button
+                class="hidden w-full h-12 bg-stone-300 text-stone-800 hover:bg-stone-400 transition-all rounded-xl font-medium font-mono"
+                id="randomWebsiteButton"
+            >
+                Open Random Website
+            </button>
+
+            <div
+                class="w-full h-fit p-2 flex justify-between items-center relative group hidden"
+                id="searchBarWrapper"
+            >
+                <input
+                    type="text"
+                    id="searchBarInput"
+                    class="w-full bg-transparent border-0 border-b-2 border-stone-500 transition-colors focus:outline-none group-hover:border-stone-300"
+                />
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    class="absolute right-0 pb-2 pr-2 h-8 transition-colors fill-stone-500 group-hover:fill-stone-300"
+                >
+                    <path
+                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                    />
+                </svg>
+            </div>
+            <ol id="searchResult" class="hidden"></ol>
+        </div>
+    </body>
+</html>
