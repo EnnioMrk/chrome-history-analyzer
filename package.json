@@ -1,0 +1,12 @@
+{
+  "name": "chrome-history-analyzer",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Browser-only tool that reads a Chrome bookmarks export and turns it into a searchable, random-jump list.",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.30.0"
+  }
+}

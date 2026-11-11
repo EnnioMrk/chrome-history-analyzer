@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chrome-history-analyzer",
+  "compatibility_date": "2025-08-13",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "none"
+  },
+  "routes": [
+    {
+      "pattern": "chrome-history.ennio.vip",
+      "custom_domain": true
+    }
+  ]
+}
